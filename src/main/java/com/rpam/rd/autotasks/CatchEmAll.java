@@ -9,9 +9,24 @@ public class CatchEmAll {
 
     public static void riskyMethod() throws Exception {
         throw exception;
+
     }
 
     public static void main(String[] args) throws Exception {
-        riskyMethod();
+        try {
+            riskyMethod();
+            System.out.println("Success");
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Resource error",e);
+        } catch(FileNotFoundException e){
+            throw new IllegalArgumentException("Resource is missing",e);
+        }
+        catch(ArithmeticException | NumberFormatException e){
+            System.err.println("Caught: "+ e.getMessage());
+        }
+        catch(Exception e){
+            throw e;
+        }
+        
     }
 }
