@@ -23,7 +23,7 @@ public class CatchEmAll {
              throw new IllegalArgumentException("Resource error",e);
         }
         catch(ArithmeticException | NumberFormatException e){
-            System.err.println("Caught: "+ e.getMessage());
+            System.err.println(e.getMessage());
         }
         catch(Exception e){
             throw e;
